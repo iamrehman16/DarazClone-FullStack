@@ -1,0 +1,60 @@
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 24px;
+  font-family: var(--font-primary);
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.section p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.statCard {
+  flex: 1;
+  text-align: center;
+  padding: 24px;
+  background-color: var(--color-bg-gray);
+  border-radius: var(--radius-md);
+}
+
+.statCard h3 {
+  font-size: 28px;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.statCard p {
+  font-size: 16px;
+  color: var(--color-text-dark);
+}
+
+@media (max-width: 768px) {
+  .stats {
+    flex-direction: column;
+  }
+}

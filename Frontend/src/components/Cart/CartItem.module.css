@@ -1,0 +1,58 @@
+.card {
+  display: grid;
+  grid-template-columns: auto 100px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.info h4 {
+  margin-bottom: 4px;
+}
+
+.info p {
+  color: var(--color-text-gray);
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.quantity button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-border);
+  background: white;
+  cursor: pointer;
+}
+
+.total {
+  margin-left: 100px;
+  font-weight: 600;
+}
+
+.removeBtn{
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.removeBtn:hover{
+  font-weight: 500;
+}

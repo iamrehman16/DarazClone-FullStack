@@ -1,0 +1,42 @@
+/* ProductInfo.module.css */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info h1 {
+  font-size: 26px;
+  color: var(--color-text-dark);
+}
+
+.info p {
+  color: var(--color-text-gray);
+  font-size: 14px;
+}
+
+.rating span {
+  color: var(--color-text-gray);
+}
+
+.priceBox {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.discounted {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.original {
+  text-decoration: line-through;
+  color: var(--color-text-gray);
+}
+
+.off {
+  color: #f85606;
+  font-weight: 600;
+}

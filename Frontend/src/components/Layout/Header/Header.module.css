@@ -1,0 +1,107 @@
+.header {
+  height: 64px;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  gap: 24px;
+  font-family: var(--font-primary);
+}
+
+/* Logo */
+.logo {
+  color: var(--color-white);
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Search */
+.searchContainer {
+  flex: 1;
+  display: flex;
+  max-width: 720px;
+}
+
+.searchInput {
+  flex: 1;
+  height: 40px;
+  padding: 0 12px;
+  border: none;
+  outline: none;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  font-size: 14px;
+}
+
+.searchButton {
+  width: 48px;
+  background-color: var(--color-primary-hover);
+  border: none;
+  cursor: pointer;
+  color: var(--color-white);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Right actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Nav buttons (About, Contact) */
+.navBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: var(--color-white);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.navBtn:hover {
+  text-decoration: underline;
+}
+
+/* Login/Signup */
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--color-white);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.actionBtn:hover {
+  text-decoration: underline;
+}
+
+/* Cart */
+.cartBtn {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-white);
+}
+
+.cartCount {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-size: 11px;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-weight: bold;
+}

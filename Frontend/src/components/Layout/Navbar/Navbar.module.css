@@ -1,0 +1,28 @@
+.navbar {
+  width: 200px;
+  height: 400px;
+  border: 1px solid var(--color-bg-gray);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  font-family: var(--font-primary);
+  padding-top: 8px;
+  padding-left: 12px;
+}
+
+.navList{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.navItem {
+  font-size: 14px;
+  color: var(--color-text-gray);
+  cursor: pointer;
+  padding: 4px 8px;
+  list-style: none;
+}
+
+.navItem:hover {
+  color: var(--color-primary);
+}

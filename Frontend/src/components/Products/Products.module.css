@@ -1,0 +1,16 @@
+
+
+
+
+.title{
+    color: var(--color-text-gray);
+    font: var(--font-primary);
+    padding: 18px 0px;
+}
+
+.productsGrid{
+    height: auto;
+    display: grid;
+    grid-template-columns:repeat(6,1fr);
+    gap: 4px;
+}

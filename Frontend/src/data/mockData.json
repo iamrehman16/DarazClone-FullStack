@@ -1,0 +1,65 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Samsung Galaxy A15",
+      "description": "6GB RAM, 128GB Storage",
+      "price": 42000,
+      "discount": 15,
+      "rating": 4.3,
+      "reviews": 128,
+      "image": "/assets/sample-product.jpg",
+      "category": "Mobile Phones"
+    },
+    {
+      "id": 2,
+      "title": "Nike Sports Shoes",
+      "description": "Comfortable running shoes",
+      "price": 9000,
+      "discount": 10,
+      "rating": 4.5,
+      "reviews": 50,
+      "image": "/assets/shoes.jpg",
+      "category": "Sports"
+    },
+    {
+      "id": 3,
+      "title": "MacBook Pro 14",
+      "description": "M3 chip, 16GB RAM, 512GB SSD",
+      "price": 250000,
+      "discount": 5,
+      "rating": 4.8,
+      "reviews": 95,
+      "image": "/assets/laptop.jpg",
+      "category": "Electronics"
+    },
+    {
+      "id": 4,
+      "title": "Wireless Headphones",
+      "description": "Noise cancelling, 30hr battery",
+      "price": 15000,
+      "discount": 20,
+      "rating": 4.2,
+      "reviews": 67,
+      "image": "/assets/headphones.jpg",
+      "category": "Electronics"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Mobile Phones",
+      "image": "/assets/mobile-category.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Sports",
+      "image": "/assets/sports-category.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Electronics",
+      "image": "/assets/electronics-category.jpg"
+    }
+  ]
+}

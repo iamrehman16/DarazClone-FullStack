@@ -1,0 +1,15 @@
+
+
+.title{
+    color: var(--color-text-gray);
+    font: var(--font-primary);
+    padding: 18px 0px;
+}
+
+.categoryGrid{
+    height: auto;
+    display: grid;
+    grid-template-columns:repeat(8,1fr);
+    row-gap: 8px;
+    /* gap: 4px; */
+}

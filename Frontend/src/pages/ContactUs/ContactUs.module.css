@@ -1,0 +1,107 @@
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 24px;
+  font-family: var(--font-primary);
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.infoSection {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.infoCard {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--color-bg-gray);
+  padding: 16px;
+  border-radius: var(--radius-md);
+}
+
+.infoCard h3 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+}
+
+.infoCard p a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.infoCard p a:hover {
+  text-decoration: underline;
+}
+
+.formContainer {
+  background-color: var(--color-white);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.formContainer h2 {
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form input,
+.form textarea {
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  width: 100%;
+  font-family: var(--font-primary);
+}
+
+.form button {
+  padding: 12px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.form button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.form textarea {
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  width: 100%;
+  font-family: var(--font-primary);
+
+  /* Prevent user from resizing */
+  resize: none;
+}
+
+
+@media (max-width: 768px) {
+  .infoSection {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,16 @@
+/* AddToCartButton.module.css */
+.button {
+  margin-top: 16px;
+  padding: 14px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--color-primary-hover);
+}

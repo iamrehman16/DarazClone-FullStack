@@ -1,0 +1,147 @@
+/* Auth section for non-logged in users */
+.authSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Login/Signup button matching Header theme */
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--color-white);
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.actionBtn:hover {
+  text-decoration: underline;
+}
+
+/* Cart button matching Header theme */
+.cartBtn {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.cartCount {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-size: 11px;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-weight: bold;
+}
+
+/* User section for logged in users */
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.userMenu {
+  position: relative;
+}
+
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-white);
+  font-size: 14px;
+}
+
+.userButton:hover {
+  opacity: 0.9;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.userName {
+  font-weight: 400;
+  color: var(--color-white);
+}
+
+.arrow {
+  font-size: 10px;
+  color: var(--color-white);
+  transition: transform 0.2s;
+}
+
+.userButton:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  z-index: 1000;
+  margin-top: 8px;
+}
+
+.dropdownItem {
+  display: block;
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  font-size: 14px;
+}
+
+.dropdownItem:hover {
+  background-color: #f8f9fa;
+}
+
+.divider {
+  margin: 0;
+  border: none;
+  border-top: 1px solid #e1e5e9;
+}
+
+.logoutItem {
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  color: #dc3545;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 14px;
+}
+
+.logoutItem:hover {
+  background-color: #f8f9fa;
+}
