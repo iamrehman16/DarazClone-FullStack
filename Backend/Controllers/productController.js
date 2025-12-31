@@ -1,6 +1,6 @@
-const productModel=require('../Model/product') 
+import productModel from "../Model/product.js"
 
-const getAllProducts = async (req, res) => {
+export const getAllProducts = async (req, res) => {
   try {
     const products = await productModel.find();
 
@@ -25,7 +25,7 @@ const getAllProducts = async (req, res) => {
   }
 };
 
-const getProductById = async (req, res) => {
+export const getProductById = async (req, res) => {
   try {
     const id = req.params.id; 
     const product = await productModel.findById(id);
@@ -58,7 +58,7 @@ const getProductById = async (req, res) => {
   }
 };
 
-const getProductsByCategory = async (req, res) => {
+export const getProductsByCategory = async (req, res) => {
   try {
     const category = req.params.category; 
     const products = await productModel.find({ category });
@@ -91,7 +91,7 @@ const getProductsByCategory = async (req, res) => {
   }
 };
 
-const searchProducts = async (req, res) => {
+export const searchProducts = async (req, res) => {
   try {
     const query = req.query.q;
     if (!query) {
@@ -129,7 +129,7 @@ const searchProducts = async (req, res) => {
     });
   }
 };
-const getFeaturedProducts = async (req, res) => {
+export const getFeaturedProducts = async (req, res) => {
   try {
     const products = await productModel
       .find({ isFeatured: true })
@@ -157,4 +157,3 @@ const getFeaturedProducts = async (req, res) => {
 };
 
 
-module.exports = { getAllProducts, getProductById, getProductsByCategory, searchProducts,getFeaturedProducts };

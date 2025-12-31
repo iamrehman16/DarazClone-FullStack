@@ -1,16 +1,15 @@
-const express = require('express');
-const router = express.Router();
-const {
+import express from "express"
+import {
   getCart,
   addToCart,
   updateCartItem,
   removeCartItem,
   clearCart,
   syncCart
-} = require('../Controllers/cartController');
-const authenticateJWT = require('../Middlewares/authMiddleware');
+} from '../Controllers/cartController.js';
+import authenticateJWT from '../Middlewares/authMiddleware.js';
 
-
+const router = express.Router();
 
 router.use(authenticateJWT)
 router.get('/', getCart);
@@ -20,4 +19,4 @@ router.delete('/items/:itemId', removeCartItem);
 router.delete('/clear', clearCart);
 router.post('/sync', syncCart);
 
-module.exports = router;
+export default router

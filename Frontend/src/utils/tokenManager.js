@@ -1,22 +1,19 @@
 // Simple token management utilities
 export const tokenManager = {
-  // Get tokens from localStorage
+  // Get access token from localStorage
   getTokens: () => {
-    const accessToken = localStorage.getItem('authToken')
-    const refreshToken = localStorage.getItem('refreshToken')
-    return { accessToken, refreshToken }
+    const accessToken = localStorage.getItem('accessToken')
+    return { accessToken }
   },
 
-  // Set tokens in localStorage
-  setTokens: (accessToken, refreshToken) => {
-    if (accessToken) localStorage.setItem('authToken', accessToken)
-    if (refreshToken) localStorage.setItem('refreshToken', refreshToken)
+  // Set access token in localStorage
+  setTokens: (accessToken) => {
+    if (accessToken) localStorage.setItem('accessToken', accessToken)
   },
 
-  // Clear all tokens
+  // Clear token and session
   clearTokens: () => {
-    localStorage.removeItem('authToken')
-    localStorage.removeItem('refreshToken')
+    localStorage.removeItem('accessToken')
     localStorage.removeItem('currentUser')
   },
 
@@ -37,9 +34,9 @@ export const tokenManager = {
     }
   },
 
-  // Check if we have valid tokens
+  // Check if we have a valid access token
   hasValidTokens: () => {
-    const { accessToken, refreshToken } = tokenManager.getTokens()
-    return accessToken && refreshToken && !tokenManager.isTokenExpired(accessToken)
+    const { accessToken } = tokenManager.getTokens()
+    return accessToken && !tokenManager.isTokenExpired(accessToken)
   }
-}
+} 

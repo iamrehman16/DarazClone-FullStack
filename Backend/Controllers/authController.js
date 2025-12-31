@@ -1,9 +1,9 @@
-const userModel = require('../Model/user');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+import userModel from '../Model/user.js';
+import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
 
 // REGISTER / SIGNUP
-const register = async (req, res) => {
+export const register = async (req, res) => {
     try {
         const { name, email, password } = req.body;
         console.log("reached")
@@ -41,7 +41,7 @@ const register = async (req, res) => {
 };
 
 // LOGIN
-const login = async (req, res) => {
+export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
          console.log(req.body);
@@ -74,7 +74,7 @@ const login = async (req, res) => {
                 email: user.email,
                 createdAt: user.createdAt
             },
-            token
+            accessToken:token
         });
 
     } catch (error) {
@@ -88,7 +88,7 @@ const login = async (req, res) => {
 
 
 // REFRESH TOKEN
-const refresh = async (req, res) => {
+export const refresh = async (req, res) => {
     try {
         const { token } = req.body;
         if (!token) return res.status(400)
@@ -119,7 +119,7 @@ const refresh = async (req, res) => {
 };
 
 // GET PROFILE
-const getProfile = async (req, res) => {
+export const getProfile = async (req, res) => {
     try {
         const user = await userModel.findById(req.user._id).select('-password');
         if (!user)
@@ -135,7 +135,7 @@ const getProfile = async (req, res) => {
 };
 
 // UPDATE PROFILE
-const updateProfile = async (req, res) => {
+export const updateProfile = async (req, res) => {
     try {
         const updates = req.body;
         if (updates.password) {
@@ -149,10 +149,3 @@ const updateProfile = async (req, res) => {
     }
 };
 
-module.exports = {
-    register,
-    login,
-    refresh,
-    getProfile,
-    updateProfile
-};

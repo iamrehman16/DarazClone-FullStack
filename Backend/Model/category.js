@@ -1,16 +1,16 @@
-const mongoose=require('mongoose');
+import mongoose from "mongoose"
 
 const categorySchema= new mongoose.Schema({
     name:{
         type:String,
         required:true
-
     },
     image:{
         type: String,
-        required: true,
+        required: false
     }
 })
 
 const categoryModel= mongoose.model("categories",categorySchema)
-module.exports=categoryModel
+
+export default categoryModel

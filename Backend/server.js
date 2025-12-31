@@ -1,13 +1,14 @@
 // server.js
-require('dotenv').config();
-const express = require('express');
-const connectDB = require('./config'); // your config.js for DB
+import dotenv from "dotenv";
+dotenv.config();
+import express from 'express';
+import connectDB from "./config.js"
 
-const cors = require('cors');
-const authRouter = require('./Routes/authRouter');
-const productRouter = require('./Routes/productRouter');
-const categoryRouter=require('./Routes/categoryRouter')
-const cartRouter=require('./Routes/cartRouter')
+import cors from "cors"
+import authRouter from "./Routes/authRouter.js"
+import productRouter from './Routes/productRouter.js';
+import categoryRouter from'./Routes/categoryRouter.js'
+import cartRouter from './Routes/cartRouter.js'
 
 const app = express();
 
@@ -15,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // Connect to database
-connectDB();
+await connectDB();
 
 // Middleware
 app.use(express.json()); 

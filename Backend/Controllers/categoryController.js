@@ -1,7 +1,9 @@
-const categoryModel = require('../Model/category');
+import categoryModel from "../Model/category.js"
 
 
-const getAllCategories = async (req, res) => {
+export const getAllCategories = async (req, res) => {
+  
+
   try {
     const categories = await categoryModel.find();
 
@@ -23,7 +25,7 @@ const getAllCategories = async (req, res) => {
 };
 
 
-const getCategoryById = async (req, res) => {
+export const getCategoryById = async (req, res) => {
   try {
     const id = req.params.id;
     const category = await categoryModel.findById(id);
@@ -43,7 +45,3 @@ const getCategoryById = async (req, res) => {
   }
 };
 
-module.exports = {
-  getAllCategories,
-  getCategoryById
-};

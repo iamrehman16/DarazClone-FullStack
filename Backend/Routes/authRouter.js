@@ -1,8 +1,8 @@
 
-const express=require('express')
-const  authenticateJWT  = require('../Middlewares/authMiddleware')
-const {validateLogin,validateSignup}=require('../Middlewares/validationMiddleware')
-const { register, login, refresh, getProfile, updateProfile } = require('../Controllers/authController')
+import express from "express"
+import  authenticateJWT  from '../Middlewares/authMiddleware.js'
+import {validateLogin,validateSignup} from '../Middlewares/validationMiddleware.js'
+import { register, login, refresh, getProfile, updateProfile } from '../Controllers/authController.js'
 const router=express.Router()
 
 
@@ -14,5 +14,4 @@ router.get('/profile',authenticateJWT,getProfile)
 router.put('/profile',authenticateJWT,updateProfile)
 
 
-
-module.exports=router
+export default router

@@ -10,12 +10,9 @@ export const authService = {
       // Try API first
       const response = await apiClient.post(API_ENDPOINTS.AUTH.LOGIN, credentials)
       
-      // Store tokens if provided
-      const { accessToken, refreshToken, token } = response.data
-      tokenManager.setTokens(
-        accessToken || token, // Support both token formats
-        refreshToken
-      )
+      // Store token (API returns only accessToken)
+      const { accessToken, token } = response.data
+      tokenManager.setTokens(accessToken || token)
       
       // Store user data
       localStorage.setItem('currentUser', JSON.stringify(response.data.user))
@@ -48,21 +45,15 @@ export const authService = {
       // Don't store password in session
       const { password: _, ...userWithoutPassword } = user
       
-      // Create mock tokens
+      // Create mock access token
       const mockAccessToken = btoa(JSON.stringify({
         userId: user.id,
         email: user.email,
         exp: Math.floor(Date.now() / 1000) + (60 * 60) // 1 hour
       }))
       
-      const mockRefreshToken = btoa(JSON.stringify({
-        userId: user.id,
-        type: 'refresh',
-        exp: Math.floor(Date.now() / 1000) + (7 * 24 * 60 * 60) // 7 days
-      }))
-      
-      // Store tokens
-      tokenManager.setTokens(mockAccessToken, mockRefreshToken)
+      // Store token
+      tokenManager.setTokens(mockAccessToken)
       
       // Save user to localStorage
       localStorage.setItem('currentUser', JSON.stringify(userWithoutPassword))
@@ -77,12 +68,9 @@ export const authService = {
       // Try API first
       const response = await apiClient.post(API_ENDPOINTS.AUTH.REGISTER, userData)
       
-      // Store tokens if provided
-      const { accessToken, refreshToken, token } = response.data
-      tokenManager.setTokens(
-        accessToken || token,
-        refreshToken
-      )
+      // Store token (API returns only accessToken)
+      const { accessToken, token } = response.data
+      tokenManager.setTokens(accessToken || token)
       
       // Store user data
       localStorage.setItem('currentUser', JSON.stringify(response.data.user))
@@ -130,14 +118,8 @@ export const authService = {
         exp: Math.floor(Date.now() / 1000) + (60 * 60) // 1 hour
       }))
       
-      const mockRefreshToken = btoa(JSON.stringify({
-        userId: newUser.id,
-        type: 'refresh',
-        exp: Math.floor(Date.now() / 1000) + (7 * 24 * 60 * 60) // 7 days
-      }))
-      
-      // Store tokens
-      tokenManager.setTokens(mockAccessToken, mockRefreshToken)
+      // Store token
+      tokenManager.setTokens(mockAccessToken)
       
       // Save to localStorage
       localStorage.setItem('currentUser', JSON.stringify(userWithoutPassword))
@@ -150,10 +132,7 @@ export const authService = {
   logout: async () => {
     try {
       // Try API first
-      const { refreshToken } = tokenManager.getTokens()
-      if (refreshToken) {
-        await apiClient.post(API_ENDPOINTS.AUTH.LOGOUT, { refreshToken })
-      }
+      await apiClient.post(API_ENDPOINTS.AUTH.LOGOUT)
     } catch (error) {
       console.warn('API not available for logout:', error.message)
     } finally {
@@ -228,24 +207,5 @@ export const authService = {
     return user && !user.isGuest && tokenManager.hasValidTokens()
   },
 
-  // Refresh token (called automatically by interceptor)
-  refreshToken: async () => {
-    try {
-      const { refreshToken } = tokenManager.getTokens()
-      if (!refreshToken) {
-        throw new Error('No refresh token available')
-      }
 
-      const response = await apiClient.post(API_ENDPOINTS.AUTH.REFRESH, { refreshToken })
-      
-      const { accessToken, refreshToken: newRefreshToken } = response.data
-      tokenManager.setTokens(accessToken, newRefreshToken || refreshToken)
-      
-      return response.data
-    } catch (error) {
-      console.warn('Token refresh failed:', error.message)
-      tokenManager.clearTokens()
-      throw error
-    }
-  }
 }

@@ -1,8 +1,15 @@
+import express from "express"
 
-const express=require('express')
+import  authenticateJWT from '../Middlewares/authMiddleware.js'
+import { 
+    getAllProducts,
+    getProductById,
+    getProductsByCategory,
+    searchProducts,
+    getFeaturedProducts
+} from '../Controllers/productController.js'
+
 const router=express.Router()
-const  authenticateJWT = require('../Middlewares/authMiddleware')
-const { getAllProducts,getProductById,getProductsByCategory,searchProducts,getFeaturedProducts } = require('../Controllers/productController')
 
 router.use(authenticateJWT)
 router.get('/',getAllProducts)
@@ -13,4 +20,4 @@ router.get('/search', searchProducts);
 
 
 
-module.exports=router
+export default router

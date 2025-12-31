@@ -1,6 +1,6 @@
-const cartModel=require('../Model/cart');
+import cartModel from "../Model/cart.js"
 
-const getCart=async(req,res)=>
+export const getCart=async(req,res)=>
 {
   try{   const userId=req.user.id;
     const cartItems=await cartModel.findById({userId});
@@ -25,7 +25,7 @@ const getCart=async(req,res)=>
 
 }
 
-const addToCart=async(req,res)=>
+export const addToCart=async(req,res)=>
 {
     
     try {const userId=req.user.id;
@@ -67,7 +67,7 @@ const addToCart=async(req,res)=>
 
 }
 
-const updateCartItem=async(req,res)=>
+export const updateCartItem=async(req,res)=>
 {
    try{ const userId=req.user.id;
     const {quantity}=req.body;
@@ -101,7 +101,7 @@ const updateCartItem=async(req,res)=>
 
 }
 
-const removeCartItem=async(req,res)=>
+export const removeCartItem=async(req,res)=>
 {
     try{
          const userId=req.user.id;
@@ -137,7 +137,7 @@ const removeCartItem=async(req,res)=>
 }
 
 
-const clearCart = async (req, res) => {
+export const clearCart = async (req, res) => {
   try {
     const userId = req.user.id;
     await cartModel.findOneAndUpdate({ userId }, { items: [] });
@@ -147,7 +147,7 @@ const clearCart = async (req, res) => {
   }
 };
 
-const syncCart=async(req,res)=>
+export const syncCart=async(req,res)=>
 {
     try {
         const userId=req.user.id
@@ -183,35 +183,3 @@ const syncCart=async(req,res)=>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-module.exports = {
-  getCart,
-  addToCart,
-  updateCartItem,
-  removeCartItem,
-  clearCart,
-  syncCart
-};

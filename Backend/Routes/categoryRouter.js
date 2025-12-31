@@ -1,10 +1,11 @@
-const express=require('express');
+import express from 'express';
+import {getAllCategories,getCategoryById} from '../Controllers/categoryController.js'
+import  authenticateJWT  from '../Middlewares/authMiddleware.js'
+
 const router=express.Router();
-const {getAllCategories,getCategoryById}=require('../Controllers/categoryController')
-const  authenticateJWT  = require('../Middlewares/authMiddleware')
 
 router.use(authenticateJWT)
 router.get('/',getAllCategories)
 router.get('/:id',getCategoryById)
 
-module.exports=router
+export default router
