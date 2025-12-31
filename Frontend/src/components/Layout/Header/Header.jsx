@@ -1,10 +1,12 @@
 import styles from "./Header.module.css"
 import { FiSearch, FiPhone, FiMail } from "react-icons/fi"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import UserMenu from "../../User/UserMenu"
 
 export default function Header() {
   const navigate = useNavigate()
+  const [searchTerm, setSearchTerm] = useState("")
 
   return (
     <header className={styles.header}>
@@ -12,16 +14,26 @@ export default function Header() {
       <div className={styles.logo} onClick={()=>navigate("/")}>daraz</div>
 
       {/* Search */}
-      <div className={styles.searchContainer}>
+      <form
+        className={styles.searchContainer}
+        onSubmit={(e) => {
+          e.preventDefault()
+          if (searchTerm && searchTerm.trim()) {
+            navigate(`/category/${encodeURIComponent(searchTerm.trim())}`)
+          }
+        }}
+      >
         <input
           type="text"
           placeholder="Search in Daraz"
           className={styles.searchInput}
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button className={styles.searchButton}>
+        <button className={styles.searchButton} type="submit" aria-label="Search">
           <FiSearch size={18} />
         </button>
-      </div>
+      </form>
 
       {/* Actions */}
       <div className={styles.actions}>

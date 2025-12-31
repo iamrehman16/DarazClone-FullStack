@@ -65,9 +65,9 @@ export default function ProductProcess() {
     )
   }
 
-  const discountedPrice = Math.round(
-    product.price - (product.price * product.discount) / 100
-  )
+  const priceNum = Number(product.price) || 0
+  const discountNum = Number(product.discount) || 0
+  const discountedPrice = Math.round(priceNum - (priceNum * discountNum) / 100)
 
   return (
     <div className={styles.container}>

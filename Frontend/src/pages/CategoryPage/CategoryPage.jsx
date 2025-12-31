@@ -17,8 +17,10 @@ export default function CategoryPage() {
     const loadProducts = async () => {
       try {
         setLoading(true)
-        const categoryProducts = await dataService.getProductsByCategory(decodedCategory)
-        setProducts(categoryProducts)
+        // Use the search endpoint to get products matching the term, then filter by category match
+        const results = await dataService.searchProducts(decodedCategory)
+        const filtered = results.filter(p => p.category && p.category.toLowerCase().includes(decodedCategory.toLowerCase()))
+        setProducts(filtered)
       } catch (err) {
         setError('Failed to load products')
         console.error('Error loading category products:', err)
@@ -63,7 +65,7 @@ export default function CategoryPage() {
             />
           ))
         ) : (
-          <p>No products found in this category.</p>
+          <p>No matches found.</p>
         )}
       </div>
     </div>
