@@ -6,9 +6,13 @@ export default function ProductInfo({
   rating,
   reviews,
   price,
+  discount,
   off,
 }) {
-  const discountedPrice = Math.round(price - (price * off) / 100)
+  // Normalize numeric inputs and support both `discount` and legacy `off` prop
+  const priceNum = Number(price) || 0
+  const offValue = typeof discount !== "undefined" ? Number(discount) : Number(off) || 0
+  const discountedPrice = Math.round(priceNum - (priceNum * offValue) / 100)
 
   return (
     <div className={styles.info}>
@@ -22,7 +26,7 @@ export default function ProductInfo({
       <div className={styles.priceBox}>
         <span className={styles.discounted}>Rs. {discountedPrice}</span>
         <span className={styles.original}>Rs. {price}</span>
-        <span className={styles.off}>-{off}%</span>
+        {offValue > 0 && <span className={styles.off}>-{offValue}%</span>}
       </div>
     </div>
   )
