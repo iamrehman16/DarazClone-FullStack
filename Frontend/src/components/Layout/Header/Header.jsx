@@ -10,10 +10,9 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      {/* Logo */}
+   
       <div className={styles.logo} onClick={()=>navigate("/")}>daraz</div>
 
-      {/* Search */}
       <form
         className={styles.searchContainer}
         onSubmit={(e) => {
